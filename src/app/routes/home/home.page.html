@@ -3,6 +3,7 @@
     <ion-title *ngIf="!selecting">
       Lembretes
       <ion-icon class="add-reminder" [routerLink]="'/reminder/'" name="add-outline"></ion-icon>
+      <ion-icon class="toggle-selection" name="layers-outline" (click)="toggleHold()"></ion-icon>
     </ion-title>
     <ion-title *ngIf="selecting">
       <ion-icon name="close-outline" class="stop-selection" (click)="quitSelection()"></ion-icon>
@@ -11,10 +12,12 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content [fullscreen]="true" >
+  <!--
   <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
+  -->
 
   <ion-header collapse="condense">
     <ion-toolbar>

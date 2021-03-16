@@ -10,7 +10,7 @@ export class HomePage {
   constructor(private reminders: ReminderService) {}
 
   selectedReminders : Array<boolean> = []
-  selecting : boolean = true;
+  selecting : boolean = false;
 
   refresh(ev) {
     setTimeout(() => {
