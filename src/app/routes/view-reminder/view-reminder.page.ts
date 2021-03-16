@@ -1,23 +1,23 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataService, Message } from '../services/data.service';
+import { ReminderService, Reminder } from '../../services/reminder.service'
 
 @Component({
   selector: 'app-view-message',
-  templateUrl: './view-message.page.html',
-  styleUrls: ['./view-message.page.scss'],
+  templateUrl: './view-reminder.page.html',
+  styleUrls: ['./view-reminder.page.scss'],
 })
-export class ViewMessagePage implements OnInit {
-  public message: Message;
+export class ViewReminderPage implements OnInit {
+  public message: Reminder;
 
   constructor(
-    private data: DataService,
+    private data: ReminderService,
     private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.message = this.data.getMessageById(parseInt(id, 10));
+    this.message = this.data.getReminderById(parseInt(id, 10));
   }
 
   getBackButtonText() {

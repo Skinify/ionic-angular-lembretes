@@ -1,0 +1,14 @@
+<ion-item *ngIf="reminder" [detail]="false">
+  <div class="check-mark" (click)="setDone(reminder.id)">
+      <ion-icon name="checkmark-outline" [class]="reminder.done ? 'reminder-done' : 'reminder-not-done'"></ion-icon>
+  </div>
+  <ion-label class="ion-text-wrap" [routerLink]="'/reminder/' + reminder.id">
+    <h2 >
+      {{ reminder.title }}
+      <span class="date">
+        <ion-note>{{ reminder.creationDate.toLocaleDateString() }}</ion-note>
+        <ion-icon name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon>
+      </span>
+    </h2>
+  </ion-label>
+</ion-item>

@@ -57,3 +57,19 @@ ion-footer ion-title {
   font-size: 11px;
   font-weight: normal;
 }
+
+.check-mark{
+  width: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size:22px
+}
+
+.reminder-done{
+  color: #0f76b3 !important;
+}
+
+.reminder-not-done{
+  color: #dedede !important;
+}
