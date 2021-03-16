@@ -9,6 +9,9 @@ import { ReminderService, Reminder } from '../../services/reminder.service'
 export class HomePage {
   constructor(private reminders: ReminderService) {}
 
+  selectedReminders : Array<boolean> = []
+  selecting : boolean = true;
+
   refresh(ev) {
     setTimeout(() => {
       ev.detail.complete();
@@ -21,6 +24,26 @@ export class HomePage {
 
   setRemindeAsDone(id : number): void {
     return this.reminders.checkAsDone(id);
+  }
+
+  toggleHold() : void{
+    this.selecting = true;
+  }
+
+  quitSelection() : void{
+    console.log(this.selectedReminders)
+    this.selecting = false;
+  }
+
+  deleteReminders() : void{
+    if(this.selectedReminders.length > 0){
+      this.selectedReminders.forEach((selected, index) => {
+        if(selected){
+          this.reminders.deleteReminder(index)
+        }
+      })
+    }
+    this.selecting = false;
   }
 
 }

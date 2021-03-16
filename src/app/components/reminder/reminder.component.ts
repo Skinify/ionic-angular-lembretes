@@ -9,6 +9,10 @@ import { Reminder, ReminderService } from '../../services/reminder.service'
 export class ReminderComponent implements OnInit {
   @Input() reminder: Reminder 
   @Input() reminderService : ReminderService 
+  @Input() selecting : boolean = false;
+  @Input() selectedReminders: Array<boolean> = []
+
+  selected : boolean = false;
 
   constructor() { }
 
@@ -20,8 +24,18 @@ export class ReminderComponent implements OnInit {
   }
 
   setDone(id : number){
-    console.log(id);
+    if(this.selecting)
+      return
     this.reminderService.checkAsDone(id);
+  }
+
+  toggleSelected(id : number) : void{
+    if(!this.selecting)
+      return
+
+    this.selected = !this.selected;
+    this.selectedReminders[id] = this.selected
+
   }
 
 }

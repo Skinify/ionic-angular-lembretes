@@ -23,6 +23,14 @@ export class ReminderService {
       creationDate: new Date(),
       done: true,
       priority: 0,
+    },
+    {
+      id:1,
+      content: 'Conteudo 2',
+      title: 'Titulo 2',
+      creationDate: new Date(),
+      done: true,
+      priority: 0,
     }
   ];
 
@@ -73,4 +81,13 @@ export class ReminderService {
     this.reminderNextId++;
     return true;
   }
+
+  public deleteReminder(id : number) : void{
+    this.reminders = this.reminders.filter(reminder => {
+      if(reminder.id !== id){
+        return reminder;
+      }
+    })
+  } 
+
 }

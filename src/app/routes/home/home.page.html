@@ -1,8 +1,12 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
+  <ion-toolbar [class]="selecting ? 'selection-bar' : ''" >
+    <ion-title *ngIf="!selecting">
       Lembretes
       <ion-icon class="add-reminder" [routerLink]="'/reminder/'" name="add-outline"></ion-icon>
+    </ion-title>
+    <ion-title *ngIf="selecting">
+      <ion-icon name="close-outline" class="stop-selection" (click)="quitSelection()"></ion-icon>
+      <ion-icon name="trash-outline" class="delete-reminders" *ngIf="selectedReminders.length > 0" (click)="deleteReminders()"></ion-icon>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -11,7 +15,7 @@
   <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  
+
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">
@@ -21,6 +25,6 @@
   </ion-header>
   
   <ion-list>
-    <app-reminder *ngFor="let reminder of getReminders()" [reminder]="reminder" [reminderService]="reminders"></app-reminder>
+    <app-reminder *ngFor="let reminder of getReminders()" [reminder]="reminder" [reminderService]="reminders" [selecting]="selecting" [selectedReminders]="selectedReminders"></app-reminder>
   </ion-list>
 </ion-content>
