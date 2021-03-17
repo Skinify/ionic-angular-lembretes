@@ -70,6 +70,16 @@ export class ReminderService {
     })
   }
 
+  public editReminder(reminder : Reminder) : void{
+    this.reminders = this.reminders.map(rem => {
+      if(reminder.id === rem.id){
+        rem.title = reminder.title
+        rem.content = reminder.content
+      }
+      return rem;
+    })
+  }
+
   public addReminder(reminder : Reminder) : void{
     this.reminders.push({
       id:this.reminderNextId,

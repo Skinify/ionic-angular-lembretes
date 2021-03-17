@@ -56,8 +56,8 @@ export class CreateReminderPage implements OnInit {
   }
 
   async addReminder(){
-    if(this.id === 0){
-      if(this.title !== "" && this.content !== ""){
+    if(this.title !== "" && this.content !== ""){
+      if(this.id === 0){
         this.data.addReminder({
           id: 0,
           title: this.title,
@@ -68,10 +68,18 @@ export class CreateReminderPage implements OnInit {
         });
         this.location.back();
       }else{
-        await this.presentAlert();
+        this.data.editReminder({
+          id: this.id,
+          title: this.title,
+          content: this.content,
+          creationDate: new Date(),
+          done:false,
+          priority: 0
+        })
+        this.location.back();
       }
     }else{
-
+      await this.presentAlert();
     }
   }
 }

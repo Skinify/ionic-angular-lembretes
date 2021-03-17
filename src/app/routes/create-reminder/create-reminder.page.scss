@@ -20,6 +20,12 @@ ion-label{
   align-items: center;
 }
 
+ion-label > input{
+  flex:1;
+  min-width:100px;
+  margin-left: 6px;
+}
+
 ion-item{
   padding: 0 4px;
 }
