@@ -18,10 +18,10 @@ export class ReminderComponent implements OnInit {
 
   ngOnInit() {}
 
+  
   ngOnChanges() {
     if(!this.selecting){
       this.selected = false;
-      this.selectedReminders = []
     }
   }
 
@@ -42,7 +42,5 @@ export class ReminderComponent implements OnInit {
 
     this.selected = !this.selected;
     this.selectedReminders[id] = this.selected
-
   }
-
 }

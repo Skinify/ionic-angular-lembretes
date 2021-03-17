@@ -11,13 +11,7 @@ export class HomePage {
 
   selectedReminders : Array<boolean> = []
   selecting : boolean = false;
-
-  refresh(ev) {
-    setTimeout(() => {
-      ev.detail.complete();
-    }, 3000);
-  }
-
+  
   getReminders(): Reminder[] {
     return this.reminders.getReminders();
   }
@@ -27,10 +21,12 @@ export class HomePage {
   }
 
   toggleHold() : void{
+    this.selectedReminders = []
     this.selecting = true
   }
 
   quitSelection() : void{
+    this.selectedReminders = []
     this.selecting = false;
   }
 
