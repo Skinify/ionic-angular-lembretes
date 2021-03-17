@@ -18,6 +18,13 @@ export class ReminderComponent implements OnInit {
 
   ngOnInit() {}
 
+  ngOnChanges() {
+    if(!this.selecting){
+      this.selected = false;
+      this.selectedReminders = []
+    }
+  }
+
   isIos() {
     const win = window as any;
     return win && win.Ionic && win.Ionic.mode === 'ios';

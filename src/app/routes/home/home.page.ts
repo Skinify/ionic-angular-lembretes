@@ -27,11 +27,10 @@ export class HomePage {
   }
 
   toggleHold() : void{
-    this.selecting = true;
+    this.selecting = true
   }
 
   quitSelection() : void{
-    console.log(this.selectedReminders)
     this.selecting = false;
   }
 
