@@ -19,7 +19,7 @@ export class ReminderService {
     {
       id:0,
       content: 'Conteudo',
-      title: 'Titulo',
+      title: 'Titulo 123456799102',
       creationDate: new Date(),
       done: true,
       priority: 0,
@@ -50,10 +50,11 @@ export class ReminderService {
   }
 
   public getReminderById(id: number){
-    this.reminders.filter((reminder) => {
-      return reminder.id === id;
-    })
-    return null;
+    return this.reminders.filter((reminder) => {
+      if(reminder.id === id){
+        return reminder;
+      }
+    });
   }
 
   public getReminders() : Reminder[]{

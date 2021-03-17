@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { ReminderPage } from './reminder.page';
+import { CreateReminderPage } from './create-reminder.page';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ReminderPageRoutingModule } from './reminder-routing.module';
+import { CreateReminderPageRoutingModule } from './create-reminder-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    ReminderPageRoutingModule
+    CreateReminderPageRoutingModule
   ],
-  declarations: [ReminderPage]
+  declarations: [CreateReminderPage]
 })
-export class ReminderPageModule {}
+export class CreateReminderPageModule {}

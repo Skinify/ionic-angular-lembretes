@@ -3,6 +3,10 @@ ion-item {
   --background: transparent;
 }
 
+ion-title{
+  padding:0 !important;
+}
+
 ion-label {
   margin-top: 12px;
   margin-bottom: 12px;
@@ -37,4 +41,9 @@ h1 {
 
 p {
   line-height: 22px;
+}
+
+.edit-reminder{
+  font-size:28px;
+  margin-right:6px;
 }

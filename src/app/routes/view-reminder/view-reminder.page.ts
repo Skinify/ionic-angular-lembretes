@@ -8,7 +8,8 @@ import { ReminderService, Reminder } from '../../services/reminder.service'
   styleUrls: ['./view-reminder.page.scss'],
 })
 export class ViewReminderPage implements OnInit {
-  public message: Reminder;
+  public reminder: Reminder;
+  private editing: boolean = false;
 
   constructor(
     private data: ReminderService,
@@ -17,7 +18,12 @@ export class ViewReminderPage implements OnInit {
 
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.message = this.data.getReminderById(parseInt(id, 10));
+    if(id === null){
+      this.editing = true;
+    }else{
+      this.reminder = this.data.getReminderById(parseInt(id, 10))[0];
+      console.log(this.reminder)
+    }
   }
 
   getBackButtonText() {

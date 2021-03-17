@@ -5,7 +5,7 @@
   </div>
   <ion-label *ngIf="!selecting" class="ion-text-wrap" [routerLink]="'/reminder/' + reminder.id">
     <h2>
-      {{ reminder.title }}
+      {{ reminder.title.length > 10 ? reminder.title.substring(-1,10) + '...' : reminder.title}}
       <span class="date">
         <ion-note>{{ reminder.creationDate.toLocaleDateString() }}</ion-note>
         <ion-icon name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon>
@@ -15,7 +15,7 @@
 
   <ion-label *ngIf="selecting" class="ion-text-wrap">
     <h2>
-      {{ reminder.title }}
+      {{ reminder.title.length > 10 ? reminder.title.substring(-1,10) + '...' : reminder.title}}
       <span class="date">
         <ion-note>{{ reminder.creationDate.toLocaleDateString() }}</ion-note>
         <ion-icon name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon>

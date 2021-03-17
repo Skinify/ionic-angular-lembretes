@@ -12,9 +12,9 @@ const routes: Routes = [
   },
   {
     path: 'reminder',
-    loadChildren: () => import('./routes/reminder/reminder.module').then( m => m.ReminderPageModule)
+    loadChildren: () => import('./routes/create-reminder/create-reminder.module').then( m => m.CreateReminderPageModule)
   },
-  {
+  { 
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'

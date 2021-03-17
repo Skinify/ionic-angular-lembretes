@@ -3,12 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { ReminderService, Reminder } from '../../services/reminder.service'
 
 @Component({
-  selector: 'app-reminder',
-  templateUrl: './reminder.page.html',
-  styleUrls: ['./reminder.page.scss'],
+  selector: 'app-create-reminder',
+  templateUrl: './create-reminder.page.html',
+  styleUrls: ['./create-reminder.page.scss'],
 })
-export class ReminderPage implements OnInit {
+export class CreateReminderPage implements OnInit {
   public reminder: Reminder;
+  private editing: boolean = false;
 
   constructor(
     private data: ReminderService,
@@ -16,9 +17,13 @@ export class ReminderPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log("teste")
     const id = this.activatedRoute.snapshot.paramMap.get('id');
-    this.reminder = this.data.getReminderById(parseInt(id, 10));
+    if(id === null){
+      this.editing = true;
+    }else{
+      this.reminder = this.data.getReminderById(parseInt(id, 10))[0];
+      console.log(this.reminder)
+    }
   }
 
   getBackButtonText() {
