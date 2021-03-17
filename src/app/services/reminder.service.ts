@@ -13,11 +13,11 @@ export interface Reminder {
   providedIn: 'root'
 })
 export class ReminderService {
-  private reminderNextId = 1;
+  private reminderNextId = 3;
 
   public reminders: Reminder[] = [
     {
-      id:0,
+      id:1,
       content: 'Conteudo',
       title: 'Titulo 123456799102',
       creationDate: new Date(),
@@ -25,7 +25,7 @@ export class ReminderService {
       priority: 0,
     },
     {
-      id:1,
+      id:2,
       content: 'Conteudo 2',
       title: 'Titulo 2',
       creationDate: new Date(),
@@ -70,17 +70,16 @@ export class ReminderService {
     })
   }
 
-  public addReminder() : boolean{
+  public addReminder(reminder : Reminder) : void{
     this.reminders.push({
       id:this.reminderNextId,
-      title:'Titulo',
-      content: 'Teste',
-      creationDate: new Date(),
-      done: false,
-      priority: 0, 
+      title:reminder.title,
+      content: reminder.content,
+      creationDate: reminder.creationDate,
+      done: reminder.done,
+      priority:reminder.priority, 
     });
     this.reminderNextId++;
-    return true;
   }
 
   public deleteReminder(id : number) : void{

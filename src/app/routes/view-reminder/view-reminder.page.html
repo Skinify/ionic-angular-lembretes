@@ -5,7 +5,7 @@
     </ion-buttons>
     <ion-title>{{ reminder.title.length > 10 ? reminder.title.substring(-1,10) + '...' : reminder.title}}</ion-title>
     <ion-buttons slot="end">
-      <ion-icon class="edit-reminder" name="create-outline"></ion-icon>
+      <ion-icon class="edit-reminder" name="create-outline" [routerLink]="'/create/reminder/' + reminder.id"></ion-icon>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

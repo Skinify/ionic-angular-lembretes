@@ -11,7 +11,7 @@ const routes: Routes = [
     loadChildren: () => import('./routes/view-reminder/view-reminder.module').then( m => m.ViewReminderPageModule)
   },
   {
-    path: 'reminder',
+    path: 'create/reminder/:id',
     loadChildren: () => import('./routes/create-reminder/create-reminder.module').then( m => m.CreateReminderPageModule)
   },
   { 

@@ -2,7 +2,7 @@
   <ion-toolbar [class]="selecting ? 'selection-bar' : ''" >
     <ion-title *ngIf="!selecting">
       Lembretes
-      <ion-icon class="add-reminder" [routerLink]="'/reminder/'" name="add-outline"></ion-icon>
+      <ion-icon class="add-reminder" [routerLink]="'/create/reminder/0'" name="add-outline"></ion-icon>
       <ion-icon class="toggle-selection" name="layers-outline" (click)="toggleHold()"></ion-icon>
     </ion-title>
     <ion-title *ngIf="selecting">
