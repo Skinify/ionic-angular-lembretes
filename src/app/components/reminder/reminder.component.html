@@ -1,4 +1,4 @@
-<ion-item *ngIf="reminder" [detail]="false" (click)="toggleSelected(reminder.id)">
+<ion-item *ngIf="reminder" [detail]="false" (click)="toggleSelected(reminder.id)" cdkDrag>
   <div class="check-mark" (click)="setDone(reminder.id)">
       <ion-icon *ngIf="!selecting" name="checkmark-outline" [class]="reminder.done ? 'reminder-done' : 'reminder-not-done'"></ion-icon>
       <ion-icon *ngIf="selecting" name="radio-button-on-outline" [class]="selected ? 'selected-ball' : 'unselected-ball'"></ion-icon>

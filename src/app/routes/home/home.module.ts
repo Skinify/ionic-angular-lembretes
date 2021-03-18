@@ -7,13 +7,16 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { ReminderComponentModule } from '../../components/reminder/reminder.module'
 
+import {DragDropModule} from '@angular/cdk/drag-drop'
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
     ReminderComponentModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    DragDropModule
   ],
   declarations: [HomePage]
 })

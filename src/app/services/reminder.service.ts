@@ -25,6 +25,7 @@ export class ReminderService {
     this.storage = await this.storage.create();
     let savedReminders = await this.storage.get('reminders');
     let nextId = await this.storage.get('nextId')
+    console.log(savedReminders)
     if(savedReminders !== null){
       this.reminders = savedReminders;
       if(nextId !== null){
@@ -56,6 +57,10 @@ export class ReminderService {
 
   public getReminders() : Reminder[]{
     return this.reminders;
+  }
+
+  public async firstTimeGetReminders() : Promise<Reminder[]>{
+    return await this.storage.get('reminders');
   }
 
   public checkAsDone(id : number) : void{
@@ -112,7 +117,7 @@ export class ReminderService {
 
   private reOrderIds() : void{
     this.reminders = this.reminders.map((reminder,index) => {
-      reminder.id = index
+      reminder.id = index + 1
       return reminder
     })
     this.reminderNextId = this.reminders.length + 1

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ReminderService, Reminder } from '../../services/reminder.service'
+import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop'
 
 @Component({
   selector: 'app-home',
@@ -7,17 +8,17 @@ import { ReminderService, Reminder } from '../../services/reminder.service'
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private reminders: ReminderService) {}
+  constructor(private reminderService: ReminderService) {}
 
   selectedReminders : Array<boolean> = []
   selecting : boolean = false;
   
   getReminders(): Reminder[] {
-    return this.reminders.getReminders();
+    return this.reminderService.getReminders();
   }
 
   setRemindeAsDone(id : number): void {
-    return this.reminders.checkAsDone(id);
+    return this.reminderService.checkAsDone(id);
   }
 
   toggleHold() : void{
@@ -34,11 +35,15 @@ export class HomePage {
     if(this.selectedReminders.length > 0){
       this.selectedReminders.forEach((selected, index) => {
         if(selected){
-          this.reminders.deleteReminder(index)
+          this.reminderService.deleteReminder(index)
         }
       })
     }
     this.selecting = false;
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.getReminders(), event.previousIndex, event.currentIndex);
   }
 
 }
