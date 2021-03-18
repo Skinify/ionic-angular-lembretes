@@ -1,14 +1,35 @@
 <ion-header [translucent]="true">
   <ion-toolbar [class]="selecting ? 'selection-bar' : ''" >
+
     <ion-title *ngIf="!selecting">
       Lembretes
-      <ion-icon class="add-reminder" [routerLink]="'/create/reminder/0'" name="add-outline"></ion-icon>
-      <ion-icon class="toggle-selection" name="layers-outline" (click)="toggleHold()"></ion-icon>
     </ion-title>
-    <ion-title *ngIf="selecting">
-      <ion-icon name="close-outline" class="stop-selection" (click)="quitSelection()"></ion-icon>
-      <ion-icon name="trash-outline" class="delete-reminders" *ngIf="selectedReminders.length > 0" (click)="deleteReminders()"></ion-icon>
-    </ion-title>
+    <ion-buttons slot="end" *ngIf="!selecting">
+      <ion-button class="ion-activatable ripple-parent" (click)="toggleHold()">
+        <ion-icon name="layers-outline"></ion-icon>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-button>
+      <ion-button class="ion-activatable ripple-parent" [routerLink]="'/create/reminder/0'">
+        <ion-icon name="add-outline"></ion-icon>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-button>
+    </ion-buttons>
+
+
+    <ion-buttons *ngIf="selecting" slot="start">
+      <ion-button class="ion-activatable ripple-parent" (click)="quitSelection()">
+        <ion-icon name="close-outline"></ion-icon>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons *ngIf="selecting" slot="end">
+      <ion-button slot="end" class="ion-activatable ripple-parent" *ngIf="selectedReminders.length > 0" (click)="deleteReminders()">
+        <ion-icon name="trash-outline"></ion-icon>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-button>
+    </ion-buttons>
+
+
   </ion-toolbar>
 </ion-header>
 

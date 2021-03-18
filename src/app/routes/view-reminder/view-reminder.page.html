@@ -4,8 +4,12 @@
       <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
     </ion-buttons>
     <ion-title>{{ reminder.title.length > 16 ? reminder.title.substring(-1,16) + '...' : reminder.title}}</ion-title>
+
     <ion-buttons slot="end">
-      <ion-icon class="edit-reminder" name="create-outline" [routerLink]="'/create/reminder/' + reminder.id"></ion-icon>
+      <ion-button class="ion-activatable ripple-parent" [routerLink]="'/create/reminder/' + reminder.id">
+        <ion-icon  name="create-outline"></ion-icon>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

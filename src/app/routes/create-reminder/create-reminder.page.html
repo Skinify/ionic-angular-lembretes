@@ -2,7 +2,10 @@
   <ion-toolbar>
     <ion-buttons>
       <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
-      <ion-icon class="save-reminder" name="checkmark-outline" (click)="addReminder()"></ion-icon>
+      <ion-button class="ion-activatable ripple-parent" (click)="addReminder()">
+        <ion-icon name="checkmark-outline"></ion-icon>
+        <ion-ripple-effect></ion-ripple-effect>
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

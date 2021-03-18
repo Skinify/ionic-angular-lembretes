@@ -1,6 +1,8 @@
 {
   "name": "lembretes",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "d54df48c"
 }

@@ -8,7 +8,6 @@
       {{ reminder.title.length > 16 ? reminder.title.substring(-1,16) + '...' : reminder.title}}
       <span class="date">
         <ion-note>{{ reminder.creationDate.toLocaleDateString() }}</ion-note>
-        <ion-icon name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon>
       </span>
     </h2>
   </ion-label>
@@ -18,7 +17,6 @@
       {{ reminder.title.length > 16 ? reminder.title.substring(-1,16) + '...' : reminder.title}}
       <span class="date">
         <ion-note>{{ reminder.creationDate.toLocaleDateString() }}</ion-note>
-        <ion-icon name="chevron-forward" size="small" *ngIf="isIos()"></ion-icon>
       </span>
     </h2>
   </ion-label>
