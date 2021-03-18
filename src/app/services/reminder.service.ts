@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage-angular';
 
 export interface Reminder {
   id:number,
@@ -13,28 +14,24 @@ export interface Reminder {
   providedIn: 'root'
 })
 export class ReminderService {
-  private reminderNextId = 3;
+  private reminderNextId = 1;
+  public reminders: Reminder[] = [];
 
-  public reminders: Reminder[] = [
-    {
-      id:1,
-      content: 'Conteudo',
-      title: 'Titulo 123456799102',
-      creationDate: new Date(),
-      done: true,
-      priority: 0,
-    },
-    {
-      id:2,
-      content: 'Conteudo 2',
-      title: 'Titulo 2',
-      creationDate: new Date(),
-      done: true,
-      priority: 0,
+  constructor(private storage: Storage) {
+    this.init();
+   }
+
+  async init(){
+    this.storage = await this.storage.create();
+    let savedReminders = await this.storage.get('reminders');
+    let nextId = await this.storage.get('nextId')
+    if(savedReminders !== null){
+      this.reminders = savedReminders;
+      if(nextId !== null){
+        this.reminderNextId = nextId
+      }
     }
-  ];
-
-  constructor() { }
+  }
 
   public getNextPriority() : number{
     let newArr = this.reminders.sort((a,b) => {
@@ -68,6 +65,7 @@ export class ReminderService {
       }
       return reminder;
     })
+    this.syncStorage()
   }
 
   public editReminder(reminder : Reminder) : void{
@@ -78,6 +76,7 @@ export class ReminderService {
       }
       return rem;
     })
+    this.syncStorage()
   }
 
   public addReminder(reminder : Reminder) : void{
@@ -89,7 +88,7 @@ export class ReminderService {
       done: reminder.done,
       priority:reminder.priority, 
     });
-    this.reminderNextId++;
+    this.syncStorage()
   }
 
   public deleteReminder(id : number) : void{
@@ -98,6 +97,24 @@ export class ReminderService {
         return reminder;
       }
     })
+    this.syncStorage()
   } 
 
+  private async syncStorage() : Promise<void>{
+    try{
+      this.reOrderIds();
+      await this.storage.set('reminders', this.reminders);
+      await this.storage.set('nextId', this.reminderNextId);
+    }catch(err){
+      console.log(err)
+    }
+  }
+
+  private reOrderIds() : void{
+    this.reminders = this.reminders.map((reminder,index) => {
+      reminder.id = index
+      return reminder
+    })
+    this.reminderNextId = this.reminders.length + 1
+  }
 }
