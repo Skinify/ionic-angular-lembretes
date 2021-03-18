@@ -3,21 +3,22 @@
       <ion-icon *ngIf="!selecting" name="checkmark-outline" [class]="reminder.done ? 'reminder-done' : 'reminder-not-done'"></ion-icon>
       <ion-icon *ngIf="selecting" name="radio-button-on-outline" [class]="selected ? 'selected-ball' : 'unselected-ball'"></ion-icon>
   </div>
-  <ion-label *ngIf="!selecting" class="ion-text-wrap" [routerLink]="'/reminder/' + reminder.id">
+  <div *ngIf="!selecting" class="list-item ion-text-wrap ion-activatable" [routerLink]="'/reminder/' + reminder.id">
     <h2>
       {{ reminder.title.length > 16 ? reminder.title.substring(-1,16) + '...' : reminder.title}}
       <span class="date">
         <ion-note>{{ reminder.creationDate.toLocaleDateString() }}</ion-note>
       </span>
     </h2>
-  </ion-label>
+    <ion-ripple-effect></ion-ripple-effect>
+  </div>
 
-  <ion-label *ngIf="selecting" class="ion-text-wrap">
+  <div *ngIf="selecting" class="list-item ion-text-wrap">
     <h2>
       {{ reminder.title.length > 16 ? reminder.title.substring(-1,16) + '...' : reminder.title}}
       <span class="date">
         <ion-note>{{ reminder.creationDate.toLocaleDateString() }}</ion-note>
       </span>
     </h2>
-  </ion-label>
+  </div>
 </ion-item>

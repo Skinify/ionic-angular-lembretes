@@ -3,11 +3,6 @@ ion-item {
   --inner-padding-end: 0;
 }
 
-ion-label {
-  margin-top: 12px;
-  margin-bottom: 12px;
-}
-
 ion-item h2 {
   font-weight: 600;
   margin: 0;
@@ -67,4 +62,17 @@ ion-footer ion-title {
 
 .unselected-ball{
   color: #dedede !important;
+}
+
+.list-item{
+  width: 100%;
+}
+
+.list-item > h2{
+  font-size:20px;
+  font-weight: normal;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: none;
 }
