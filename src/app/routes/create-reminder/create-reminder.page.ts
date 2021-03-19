@@ -64,7 +64,6 @@ export class CreateReminderPage implements OnInit {
           content: this.content,
           creationDate: new Date(),
           done:false,
-          priority: 0
         });
         this.location.back();
       }else{
@@ -74,7 +73,6 @@ export class CreateReminderPage implements OnInit {
           content: this.content,
           creationDate: new Date(),
           done:false,
-          priority: 0
         })
         this.location.back();
       }

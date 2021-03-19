@@ -44,6 +44,7 @@ export class HomePage {
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.getReminders(), event.previousIndex, event.currentIndex);
+    this.reminderService.syncStorage();
+    console.log(this.getReminders())
   }
-
 }
