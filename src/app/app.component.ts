@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { HeaderColor } from '@ionic-native/header-color/ngx';
+import { StatusBar } from '@ionic-native/status-bar';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrls: ['app.component.scss'],
 })
 export class AppComponent {
-  constructor() {}
+  constructor(private headerColor: HeaderColor, private statusBar: StatusBar) {
+    this.statusBar.backgroundColorByHexString('#f9fafb');
+    this.statusBar.styleDefault()
+    this.statusBar.overlaysWebView(true);
+    //headerColor.tint("#FFF") header na visao de multitarefas
+  }
 }
