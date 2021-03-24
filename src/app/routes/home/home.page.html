@@ -5,7 +5,7 @@
       Lembretes
     </ion-title>
     <ion-buttons slot="end" *ngIf="!selecting">
-      <ion-button class="ion-activatable ripple-parent" (click)="toggleHold()">
+      <ion-button *ngIf="getReminders().length > 0" class="ion-activatable ripple-parent" (click)="toggleHold()">
         <ion-icon name="layers-outline"></ion-icon>
         <ion-ripple-effect></ion-ripple-effect>
       </ion-button>
