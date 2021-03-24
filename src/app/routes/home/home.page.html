@@ -5,7 +5,7 @@
       Lembretes
     </ion-title>
     <ion-buttons slot="end" *ngIf="!selecting">
-      <ion-button class="ion-activatable ripple-parent" (click)="toggleHold()">
+      <ion-button *ngIf="getReminders().length > 0" class="ion-activatable ripple-parent" (click)="toggleHold()">
         <ion-icon name="layers-outline"></ion-icon>
         <ion-ripple-effect></ion-ripple-effect>
       </ion-button>
@@ -39,7 +39,11 @@
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
   -->
-
+  <h1 class="no-reminders" *ngIf="getReminders().length === 0">
+    Voce ainda não possui lembretes,<a [routerLink]="'/create/reminder/0'">
+      adicione um já
+    </a>
+  </h1>
   <ion-list cdkDropList (cdkDropListDropped)="drop($event)">
     <app-reminder *ngFor="let reminder of getReminders()" [reminder]="reminder" [reminderService]="reminderService" [selecting]="selecting" [selectedReminders]="selectedReminders"></app-reminder>
   </ion-list> 
