@@ -11,6 +11,6 @@ export class AppComponent {
   constructor(private statusBar: StatusBar) {
     this.statusBar.backgroundColorByHexString('#f9fafb');
     this.statusBar.styleDefault()
-    this.statusBar.overlaysWebView(true);
+    this.statusBar.overlaysWebView(false);
   }
 }
