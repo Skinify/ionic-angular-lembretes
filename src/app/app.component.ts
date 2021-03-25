@@ -9,8 +9,8 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 })
 export class AppComponent {
   constructor(private statusBar: StatusBar) {
-    this.statusBar.backgroundColorByHexString('#f9fafb');
-    this.statusBar.styleDefault()
+    this.statusBar.backgroundColorByHexString('#333');
+    this.statusBar.styleBlackTranslucent();
     this.statusBar.overlaysWebView(false);
   }
 }
