@@ -7,7 +7,6 @@ export interface Reminder {
   content:string,
   creationDate: Date,
   done:boolean,
-  priority: number,
 }
 
 @Injectable({
@@ -31,19 +30,6 @@ export class ReminderService {
         this.reminderNextId = nextId
       }
     }
-  }
-
-  public getNextPriority() : number{
-    let newArr = this.reminders.sort((a,b) => {
-      if(a.priority < b.priority){
-        return -1;
-      }
-      if(a.priority < b.priority){
-        return 1;
-      }
-      return 0;
-    })
-    return newArr[0].priority + 1;
   }
 
   public getReminderById(id: number){
@@ -90,7 +76,6 @@ export class ReminderService {
       content: reminder.content,
       creationDate: reminder.creationDate,
       done: reminder.done,
-      priority:reminder.priority, 
     });
     this.syncStorage()
   }
@@ -104,7 +89,7 @@ export class ReminderService {
     this.syncStorage()
   } 
 
-  private async syncStorage() : Promise<void>{
+  public async syncStorage() : Promise<void>{
     try{
       this.reOrderIds();
       await this.storage.set('reminders', this.reminders);
