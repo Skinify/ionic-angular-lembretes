@@ -24,7 +24,6 @@ export class ReminderService {
     this.storage = await this.storage.create();
     let savedReminders = await this.storage.get('reminders');
     let nextId = await this.storage.get('nextId')
-    console.log(savedReminders)
     if(savedReminders !== null){
       this.reminders = savedReminders;
       if(nextId !== null){
