@@ -86,7 +86,7 @@ export class ReminderService {
         return reminder;
       }
     })
-    this.syncStorage()
+    //this.syncStorage()
   } 
 
   public async syncStorage() : Promise<void>{

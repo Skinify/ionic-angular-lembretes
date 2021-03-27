@@ -39,12 +39,12 @@ export class HomePage {
         }
       })
     }
+    this.reminderService.syncStorage()
     this.selecting = false;
   }
 
   drop(event: CdkDragDrop<string[]>) {
     moveItemInArray(this.getReminders(), event.previousIndex, event.currentIndex);
     this.reminderService.syncStorage();
-    console.log(this.getReminders())
   }
 }
