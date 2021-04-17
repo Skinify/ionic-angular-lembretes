@@ -11,12 +11,14 @@ export class SearchPage {
 
   @ViewChild('searchInput') searchInput ;
 
+  searchInputModel : string = "";
+
   public searchTextChanged(text : string){
     console.log(text);
   }
 
   public getReminders() : Reminder[]{
-    return this.reminderService.getReminders();
+    return this.reminderService.filterByTitle(this.searchInputModel);
   }
 
   ngOnInit(){

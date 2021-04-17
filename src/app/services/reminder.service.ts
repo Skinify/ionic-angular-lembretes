@@ -106,4 +106,39 @@ export class ReminderService {
     })
     this.reminderNextId = this.reminders.length + 1
   }
+
+  public filterByTitle(filter : string) : Reminder[]{
+    if(filter === null || filter === "" ){
+      return this.reminders;
+    }
+
+    let unorderedReminders : any = this.reminders.filter(reminder =>{
+      let reminderTitleKeyWords = reminder.title.split(" ");
+      let matchingKeys = 0;
+      reminderTitleKeyWords.forEach(titleKeyword => {
+        if(titleKeyword.includes(filter)){
+          matchingKeys++;
+        }
+      });
+      if(matchingKeys != 0){
+        return {
+          ...reminder,
+          matchs: matchingKeys,
+        }
+      }
+
+    })
+
+    unorderedReminders = unorderedReminders.sort((a,b) =>{
+      if(a.matchs < b.matchs){
+        return -1;
+      }
+      if(a.matchs > b.matchs){
+        return 1;
+      }
+      return 0;
+    })
+
+    return unorderedReminders;
+  }
 }

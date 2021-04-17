@@ -8,6 +8,6 @@
 </ion-header>
 <ion-content [fullscreen]="true">
   <ion-list>
-    <app-search-reminder *ngFor="let reminder of getReminders()" [reminder]="reminder" [reminderService]="reminderService"></app-search-reminder>
+    <app-search-reminder *ngFor="let reminder of getReminders(searchInputModel)" [reminder]="reminder" [reminderService]="reminderService"></app-search-reminder>
   </ion-list> 
 </ion-content>
