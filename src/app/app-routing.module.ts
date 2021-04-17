@@ -14,6 +14,14 @@ const routes: Routes = [
     path: 'create/reminder/:id',
     loadChildren: () => import('./routes/create-reminder/create-reminder.module').then( m => m.CreateReminderPageModule)
   },
+  {
+    path: 'about',
+    loadChildren: () => import('./routes/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'search',
+    loadChildren: () => import('./routes/search/search.module').then( m => m.SearchPageModule)
+  },
   { 
     path: '',
     redirectTo: 'home',

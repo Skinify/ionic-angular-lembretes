@@ -32,18 +32,3 @@
 .no-reminders > a{
     text-decoration: none;
 }
-
-#search-button{
-    position: absolute;
-    bottom:16px;
-    right: 16px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 40px;
-    width: 40px;
-    border-radius: 20px;
-    background-color: #495dea;
-    color:#FFF;
-    font-size:22px;
-}

@@ -1,0 +1,11 @@
+<ion-item *ngIf="reminder" [detail]="false">
+  <div class="search-item list-item ion-text-wrap ion-activatable" [routerLink]="'/reminder/' + reminder.id">
+    <h2>
+      {{ reminder.title.length > 16 ? reminder.title.substring(-1,16) + '...' : reminder.title}}
+      <span class="date">
+        <ion-note>{{ reminder.creationDate.toLocaleDateString() }}</ion-note>
+      </span>
+    </h2>
+    <ion-ripple-effect></ion-ripple-effect>
+  </div>
+</ion-item>

@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar [class]="selecting ? 'selection-bar' : ''" >
 
-    <ion-title *ngIf="!selecting">
+    <ion-title *ngIf="!selecting" [routerLink]="'/about'">
       Lembretes
     </ion-title>
     <ion-buttons slot="end" *ngIf="!selecting">
@@ -34,11 +34,6 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" >
-  <!--
-  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-  -->
   <h1 class="no-reminders" *ngIf="getReminders().length === 0">
     Voce ainda não possui lembretes,<a [routerLink]="'/create/reminder/0'">
       adicione um já
@@ -47,4 +42,8 @@
   <ion-list cdkDropList (cdkDropListDropped)="drop($event)">
     <app-reminder *ngFor="let reminder of getReminders()" [reminder]="reminder" [reminderService]="reminderService" [selecting]="selecting" [selectedReminders]="selectedReminders"></app-reminder>
   </ion-list> 
+  <button id="search-button" class="ion-activatable ripple-parent" [routerLink]="'/search'">
+    <ion-icon name="search-outline"></ion-icon>
+    <ion-ripple-effect></ion-ripple-effect>
+  </button>
 </ion-content>
