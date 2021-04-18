@@ -8,7 +8,7 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop'
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private reminderService: ReminderService) {}
+  constructor(public reminderService: ReminderService) {}
 
   selectedReminders : Array<boolean> = []
   selecting : boolean = false;

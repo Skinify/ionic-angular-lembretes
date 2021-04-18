@@ -3,11 +3,11 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="home" ></ion-back-button>
     </ion-buttons>
-    <ion-input #searchInput autofocus="true" type="search" placeholder="Lembrar de estudar" [(ngModel)]="searchInputModel" (input)='searchTextChanged($event.target.value)'> </ion-input>
+    <ion-input #searchInput autofocus="true" type="search" placeholder="Lembrar de estudar" [(ngModel)]="searchInputModel"> </ion-input>
   </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
   <ion-list>
-    <app-search-reminder *ngFor="let reminder of getReminders(searchInputModel)" [reminder]="reminder" [reminderService]="reminderService"></app-search-reminder>
+    <app-search-reminder *ngFor="let reminder of getReminders()" [reminder]="reminder"></app-search-reminder>
   </ion-list> 
 </ion-content>

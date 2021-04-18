@@ -13,10 +13,6 @@ export class SearchPage {
 
   searchInputModel : string = "";
 
-  public searchTextChanged(text : string){
-    console.log(text);
-  }
-
   public getReminders() : Reminder[]{
     return this.reminderService.filterByTitle(this.searchInputModel);
   }

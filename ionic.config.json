@@ -1,7 +1,8 @@
 {
   "name": "lembretes",
   "integrations": {
-    "cordova": {}
+    "cordova": {},
+    "capacitor": {}
   },
   "type": "angular",
   "id": "d54df48c"

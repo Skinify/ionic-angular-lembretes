@@ -112,13 +112,20 @@ export class ReminderService {
       return this.reminders;
     }
 
+    let filterKeyWords = filter.split(" ");
+
     let unorderedReminders : any = this.reminders.filter(reminder =>{
-      let reminderTitleKeyWords = reminder.title.split(" ");
+      let reminderTitleKeyWords = reminder.title.toLocaleLowerCase().split(" ");
+      console.log(reminderTitleKeyWords)
       let matchingKeys = 0;
       reminderTitleKeyWords.forEach(titleKeyword => {
-        if(titleKeyword.includes(filter)){
-          matchingKeys++;
-        }
+        filterKeyWords.forEach(filterKew => {
+          if(filterKew !== ""){
+            if(titleKeyword.includes(filterKew)){
+              matchingKeys++;
+            }
+          }
+        })
       });
       if(matchingKeys != 0){
         return {
