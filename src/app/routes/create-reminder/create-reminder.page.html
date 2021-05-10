@@ -1,7 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons>
+    <ion-buttons slot="start">
       <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="id === 0">Criar lembrete</ion-title>
+    <ion-title *ngIf="id !== 0">Editar lembrete</ion-title>
+    <ion-buttons slot="end">
       <ion-button class="ion-activatable ripple-parent" (click)="addReminder()">
         <ion-icon name="checkmark-outline"></ion-icon>
         <ion-ripple-effect></ion-ripple-effect>
