@@ -40,6 +40,26 @@
     animation-fill-mode: forwards;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+    margin-bottom: -3px;
+}
+
+ion-title a {
+    color:#333;
+    transition: all .2s ease;
+    animation-name: pulsing-title-anim;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes pulsing-title-anim {
+    from{
+        text-shadow: 1px 1px #495cea86, -1px -1px #495cea86;
+    }
+    to{
+        text-shadow: 1px 1px white, -1px -1px white;
+    }
 }
 
 @keyframes arrow-anim {
