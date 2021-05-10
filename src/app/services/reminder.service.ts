@@ -15,7 +15,7 @@ export interface Reminder {
 export class ReminderService {
   private reminderNextId = 1;
   public reminders: Reminder[] = [];
-  public firstVisit : Boolean = false;
+  public firstVisit : boolean = true;
 
   constructor(private storage: Storage) {
     this.init();
@@ -25,7 +25,7 @@ export class ReminderService {
     this.storage = await this.storage.create();
     let savedReminders = await this.storage.get('reminders');
     let nextId = await this.storage.get('nextId')
-    let firstVisit = await this.storage.get('firstVisit');
+    this.firstVisit = await this.storage.get('firstVisit');
     if(savedReminders !== null){
       this.reminders = savedReminders;
       if(nextId !== null){
@@ -150,8 +150,6 @@ export class ReminderService {
 
     return unorderedReminders;
   }
-
-
 
   public async openingAboutUs() : Promise<void>{
     this.firstVisit = false;

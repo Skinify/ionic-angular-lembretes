@@ -2,7 +2,7 @@
   <ion-toolbar [class]="selecting ? 'selection-bar' : ''" >
 
     <ion-title *ngIf="!selecting" [routerLink]="'/about'" (click)="clickingMore()">
-      <a>Lembretes</a> <ion-icon name="arrow-back-outline" class="moving-arrow"></ion-icon>
+      <a class="title" [class.title-animation]="reminderService.firstVisit === true">Lembretes</a> <ion-icon name="arrow-back-outline" *ngIf="reminderService.firstVisit === true" class="moving-arrow"></ion-icon>
     </ion-title>
     <ion-buttons slot="end" *ngIf="!selecting">
       <ion-button *ngIf="getReminders().length > 0" class="ion-activatable ripple-parent" (click)="toggleHold()">

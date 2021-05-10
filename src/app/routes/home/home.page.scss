@@ -43,9 +43,12 @@
     margin-bottom: -3px;
 }
 
-ion-title a {
+.title{
     color:#333;
     transition: all .2s ease;
+}
+
+.title-animation{
     animation-name: pulsing-title-anim;
     animation-duration: .6s;
     animation-fill-mode: forwards;
