@@ -75,3 +75,8 @@ ion-label{
   color: #dfdfdf;
   opacity: 1; /* Firefox */
 }
+
+textarea{
+  min-height: 300px;
+  resize: vertical;
+}

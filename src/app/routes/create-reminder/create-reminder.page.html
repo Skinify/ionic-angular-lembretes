@@ -20,15 +20,19 @@
     </div>
   </ion-item>
   <ion-item lines="none">
+    <div class="container">
     <ion-label class="desc-label">
-      <h2>Descricao</h2>
+      Descricao
     </ion-label>
-    <textarea res class="text-entry" [(ngModel)]="content"></textarea>
+    <textarea res class="text-entry" [(ngModel)]="content" placeholder="Passar na padaria antes de voltar pra casa pra comprar leite"></textarea>
+  </div>
   </ion-item>
   <ion-item lines="none" *ngIf="creationDate !== null">
+    <div class="container">
     <ion-label>
-      <h2>Data de criação</h2>
-      <input type="text" readonly disabled class="text-entry" value="{{creationDate.toLocaleDateString()}}" />
+      Data de criação
     </ion-label>
+    <input type="text" readonly disabled class="text-entry" value="{{creationDate.toLocaleDateString()}}" />
+  </div>
   </ion-item>
 </ion-content>
