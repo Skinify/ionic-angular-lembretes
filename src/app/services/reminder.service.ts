@@ -155,4 +155,8 @@ export class ReminderService {
     this.firstVisit = false;
     await this.storage.set('firstVisit', false);
   }
+
+  public async getFirstVisit() : Promise<boolean>{
+    return await this.storage.get('firstVisit');
+  }
 }

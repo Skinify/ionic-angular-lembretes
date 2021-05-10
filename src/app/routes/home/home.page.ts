@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ReminderService, Reminder } from '../../services/reminder.service'
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop'
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,10 +9,23 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop'
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(public reminderService: ReminderService) {}
+  constructor(public reminderService: ReminderService, private alertController: AlertController) {
+    this.init()
+
+  }
 
   selectedReminders : Array<boolean> = []
   selecting : boolean = false;
+  async init () {
+    if(await this.reminderService.getFirstVisit() === true){
+      const alert = await this.alertController.create({
+        header: 'Bem vindo',
+        message: '',
+        buttons: ['Confirmar']
+      });
+      await alert.present();
+    }
+  }
   
   getReminders(): Reminder[] {
     return this.reminderService.getReminders();
