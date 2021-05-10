@@ -33,6 +33,24 @@
     text-decoration: none;
 }
 
+.moving-arrow{
+    color:#495dea;
+    animation-name: arrow-anim;
+    animation-duration: .6s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes arrow-anim {
+    from{
+        margin-left: 0px;
+    }
+    to{
+        margin-left: 20px;
+    }
+}
+
 #search-button{
     position: absolute;
     bottom:16px;
