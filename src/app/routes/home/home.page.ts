@@ -23,6 +23,7 @@ export class HomePage {
       const alert = await this.alertController.create({
         header: 'Bem vindo',
         message: 'Por favor clique em "Lembretes" para saber um pouco mais sobre o app',
+        backdropDismiss:false,
         buttons: [{
           text:"Confirmar", handler: () => this.toggleFirstVisitAnimation = true
         }],
