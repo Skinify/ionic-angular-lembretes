@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar [class]="selecting ? 'selection-bar' : ''" >
 
-    <ion-title *ngIf="!selecting" [routerLink]="'/about'">
+    <ion-title *ngIf="!selecting" [routerLink]="'/about'" (click)="clickingMore()">
       <a>Lembretes</a> <ion-icon name="arrow-back-outline" class="moving-arrow"></ion-icon>
     </ion-title>
     <ion-buttons slot="end" *ngIf="!selecting">

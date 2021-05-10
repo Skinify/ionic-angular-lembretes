@@ -47,4 +47,8 @@ export class HomePage {
     moveItemInArray(this.getReminders(), event.previousIndex, event.currentIndex);
     this.reminderService.syncStorage();
   }
+
+  clickingMore() : void {
+    this.reminderService.openingAboutUs();
+  }
 }
