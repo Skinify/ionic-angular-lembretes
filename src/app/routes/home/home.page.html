@@ -24,6 +24,9 @@
         <ion-ripple-effect></ion-ripple-effect>
       </ion-button>
     </ion-buttons>
+    <ion-title *ngIf="selecting">
+      {{selectedReminders.length}} selecionado(s)
+    </ion-title>
     <ion-buttons *ngIf="selecting" slot="end">
       <ion-button slot="end" class="ion-activatable ripple-parent" *ngIf="selectedReminders.length > 0" (click)="deleteReminders()">
         <ion-icon name="trash-outline"></ion-icon>
