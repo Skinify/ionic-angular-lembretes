@@ -13,32 +13,15 @@ ion-buttons{
   justify-content: space-between;
 }
 
-ion-label{
-  display: flex !important;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
-ion-label > input{
-  flex:1;
-  min-width:100px;
-  margin-left: 6px;
-}
-
 ion-item{
   padding: 0 4px;
+  display:flex;
+  flex-direction: column;
 }
 
 ion-item:first-child{
   margin-top: 6px;
   padding-bottom: 4px;
-}
-
-.text-entry{
-  border-radius: 4px;
-  border:1px solid #dfdfdf; 
-  padding: 4px 12px;
 }
 
 .desc-label{
@@ -64,4 +47,31 @@ ion-item:first-child{
 .save-reminder{
   font-size: 26px;
   margin-right: 10px;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin:4px 0;
+  justify-content: center;
+  padding: 4px;
+}
+
+ion-label{
+  margin-bottom: 6px;
+  color:#696969 !important;
+  font-size: 14px !important;
+  letter-spacing: 1.1px;
+}
+
+.text-entry{
+  border-radius: 4px;
+  border:1px solid #dfdfdf; 
+  padding: 10px 12px;
+}
+
+.text-entry::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #dfdfdf;
+  opacity: 1; /* Firefox */
 }

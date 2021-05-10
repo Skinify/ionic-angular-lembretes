@@ -11,22 +11,24 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-item lines="none"> 
-    <ion-label>
-      <h2>Titulo</h2>
-      <input type="text" class="text-entry" [(ngModel)]="title"/>
-    </ion-label>
+  <ion-item lines="none">
+    <div class="container">
+      <ion-label>
+        Titulo
+      </ion-label>
+      <input type="text" placeholder="Comprar leite" class="text-entry" [(ngModel)]="title" />
+    </div>
   </ion-item>
-  <ion-item lines="none"> 
+  <ion-item lines="none">
     <ion-label class="desc-label">
       <h2>Descricao</h2>
-      <textarea res class="text-entry" [(ngModel)]="content"></textarea>
     </ion-label>
+    <textarea res class="text-entry" [(ngModel)]="content"></textarea>
   </ion-item>
-  <ion-item lines="none" *ngIf="creationDate !== null"> 
+  <ion-item lines="none" *ngIf="creationDate !== null">
     <ion-label>
       <h2>Data de criação</h2>
-      <input type="text" readonly disabled class="text-entry" value="{{creationDate.toLocaleDateString()}}"/>
+      <input type="text" readonly disabled class="text-entry" value="{{creationDate.toLocaleDateString()}}" />
     </ion-label>
   </ion-item>
 </ion-content>
