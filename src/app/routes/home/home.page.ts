@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,ChangeDetectorRef } from '@angular/core';
 import { ReminderService, Reminder } from '../../services/reminder.service'
 import {CdkDragDrop, moveItemInArray} from '@angular/cdk/drag-drop'
 import { AlertController } from '@ionic/angular';
@@ -9,13 +9,14 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(public reminderService: ReminderService, private alertController: AlertController) {
+  constructor(public reminderService: ReminderService, private alertController: AlertController, private changeRef: ChangeDetectorRef) {
     this.init()
   }
 
   selectedReminders : Array<boolean> = []
   selecting : boolean = false;
   toggleFirstVisitAnimation: boolean = false;
+  nOfSelectedReminders : number = 0;
 
   async init () {
     let firstVisit = await this.reminderService.getFirstVisit()
@@ -74,4 +75,10 @@ export class HomePage {
   showFirstVisitAnimation () : boolean{
     return this.toggleFirstVisitAnimation && this.reminderService.firstVisit;
   }
+
+  teste = (n : number) => {
+    this.nOfSelectedReminders = n;
+    this.changeRef.detectChanges()
+  }
+
 }

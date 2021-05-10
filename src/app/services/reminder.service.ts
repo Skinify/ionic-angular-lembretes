@@ -121,7 +121,6 @@ export class ReminderService {
 
     let unorderedReminders : any = this.reminders.filter(reminder =>{
       let reminderTitleKeyWords = reminder.title.toLocaleLowerCase().split(" ");
-      console.log(reminderTitleKeyWords)
       let matchingKeys = 0;
       reminderTitleKeyWords.forEach(titleKeyword => {
         filterKeyWords.forEach(filterKew => {

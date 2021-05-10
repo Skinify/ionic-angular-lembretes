@@ -25,10 +25,10 @@
       </ion-button>
     </ion-buttons>
     <ion-title *ngIf="selecting">
-      {{selectedReminders.length}} selecionado(s)
+      {{nOfSelectedReminders}} selecionado(s)
     </ion-title>
     <ion-buttons *ngIf="selecting" slot="end">
-      <ion-button slot="end" class="ion-activatable ripple-parent" *ngIf="selectedReminders.length > 0" (click)="deleteReminders()">
+      <ion-button slot="end" class="ion-activatable ripple-parent" *ngIf="nOfSelectedReminders > 0" (click)="deleteReminders()">
         <ion-icon name="trash-outline"></ion-icon>
         <ion-ripple-effect></ion-ripple-effect>
       </ion-button>
@@ -45,7 +45,7 @@
     </a>
   </h1>
   <ion-list cdkDropList (cdkDropListDropped)="drop($event)">
-    <app-reminder *ngFor="let reminder of getReminders()" [reminder]="reminder" [reminderService]="reminderService" [selecting]="selecting" [selectedReminders]="selectedReminders"></app-reminder>
+    <app-reminder [teste]="teste" *ngFor="let reminder of getReminders()" [nOfSelectedReminders]="nOfSelectedReminders" [reminder]="reminder" [reminderService]="reminderService" [selecting]="selecting" [selectedReminders]="selectedReminders"></app-reminder>
   </ion-list> 
   <button id="search-button" class="ion-activatable ripple-parent" [routerLink]="'/search'">
     <ion-icon name="search-outline"></ion-icon>

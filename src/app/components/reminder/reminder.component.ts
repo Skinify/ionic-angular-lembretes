@@ -11,6 +11,8 @@ export class ReminderComponent implements OnInit {
   @Input() reminderService : ReminderService 
   @Input() selecting : boolean = false;
   @Input() selectedReminders: Array<boolean> = []
+  @Input() nOfSelectedReminders: number = 0;
+  @Input() teste;
 
   selected : boolean = false;
 
@@ -36,11 +38,25 @@ export class ReminderComponent implements OnInit {
     this.reminderService.checkAsDone(id);
   }
 
+  syncNumberOfNReminders(): void{
+    let n = 0;
+    this.selectedReminders.forEach(i => {
+      if(i === true){
+        n++;
+      }
+    })
+
+    this.nOfSelectedReminders = n;
+    this.teste(n);
+  }
+
   toggleSelected(id : number) : void{
     if(!this.selecting)
       return
 
     this.selected = !this.selected;
     this.selectedReminders[id] = this.selected
+    this.syncNumberOfNReminders();
   }
+
 }
