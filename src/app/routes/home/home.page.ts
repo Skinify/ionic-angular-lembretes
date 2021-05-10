@@ -16,7 +16,8 @@ export class HomePage {
   selectedReminders : Array<boolean> = []
   selecting : boolean = false;
   async init () {
-    if(await this.reminderService.getFirstVisit() === true){
+    let firstVisit = await this.reminderService.getFirstVisit()
+    if(firstVisit === true || firstVisit === null){
       const alert = await this.alertController.create({
         header: 'Bem vindo',
         message: 'Por favor clique em "Lembretes" para saber um pouco mais sobre o app',
