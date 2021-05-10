@@ -29,7 +29,6 @@ export class ReminderService {
     if(this.firstVisit === null){
       this.firstVisit = true;
     }
-    console.log(this.firstVisit)
     if(savedReminders !== null){
       this.reminders = savedReminders;
       if(nextId !== null){

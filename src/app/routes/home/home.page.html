@@ -1,10 +1,10 @@
 <ion-header [translucent]="true">
-  <div id="first-visit-overlay" *ngIf="reminderService.firstVisit === true">
+  <div id="first-visit-overlay" *ngIf="showFirstVisitAnimation()">
     <div class="touchable-part" [routerLink]="'/about'" (click)="clickingMore()"></div>
   </div>
   <ion-toolbar [class]="selecting ? 'selection-bar' : ''" >
     <ion-title *ngIf="!selecting" [routerLink]="'/about'" (click)="clickingMore()">
-      <a class="title" [class.title-animation]="reminderService.firstVisit === true">Lembretes</a> <ion-icon name="arrow-back-outline" *ngIf="reminderService.firstVisit === true" class="moving-arrow"></ion-icon>
+      <a class="title" [class.title-animation]="showFirstVisitAnimation()">Lembretes</a> <ion-icon name="arrow-back-outline" *ngIf="showFirstVisitAnimation()" class="moving-arrow"></ion-icon>
     </ion-title>
     <ion-buttons slot="end" *ngIf="!selecting">
       <ion-button *ngIf="getReminders().length > 0" class="ion-activatable ripple-parent" (click)="toggleHold()">

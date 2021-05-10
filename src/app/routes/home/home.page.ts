@@ -15,13 +15,17 @@ export class HomePage {
 
   selectedReminders : Array<boolean> = []
   selecting : boolean = false;
+  toggleFirstVisitAnimation: boolean = false;
+
   async init () {
     let firstVisit = await this.reminderService.getFirstVisit()
     if(firstVisit === true || firstVisit === null){
       const alert = await this.alertController.create({
         header: 'Bem vindo',
         message: 'Por favor clique em "Lembretes" para saber um pouco mais sobre o app',
-        buttons: ['Confirmar']
+        buttons: [{
+          text:"Confirmar", handler: () => this.toggleFirstVisitAnimation = true
+        }],
       });
       await alert.present();
     }
@@ -64,5 +68,9 @@ export class HomePage {
 
   clickingMore() : void {
     this.reminderService.openingAboutUs();
+  }
+
+  showFirstVisitAnimation () : boolean{
+    return this.toggleFirstVisitAnimation && this.reminderService.firstVisit;
   }
 }
