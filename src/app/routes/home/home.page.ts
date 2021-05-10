@@ -11,7 +11,6 @@ import { AlertController } from '@ionic/angular';
 export class HomePage {
   constructor(public reminderService: ReminderService, private alertController: AlertController) {
     this.init()
-
   }
 
   selectedReminders : Array<boolean> = []
@@ -20,7 +19,7 @@ export class HomePage {
     if(await this.reminderService.getFirstVisit() === true){
       const alert = await this.alertController.create({
         header: 'Bem vindo',
-        message: '',
+        message: 'Por favor clique em "Lembretes" para saber um pouco mais sobre o app',
         buttons: ['Confirmar']
       });
       await alert.present();
