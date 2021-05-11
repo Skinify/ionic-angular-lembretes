@@ -29,7 +29,6 @@
     "@ionic/cli": "^6.13.1",
     "@ionic/storage": "^3.0.2",
     "@ionic/storage-angular": "^3.0.2",
-    "cordova-android": "9.0.0",
     "global": "^4.4.0",
     "ionic": "^5.4.16",
     "rxjs": "~6.6.0",
@@ -38,7 +37,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1101.4",
-    "@angular/cli": "~11.1.4",
+    "@angular/cli": "11.1.4",
     "@angular/compiler": "~11.2.0",
     "@angular/compiler-cli": "~11.2.0",
     "@angular/language-service": "~11.2.0",
@@ -48,6 +47,7 @@
     "@types/jasminewd2": "~2.0.3",
     "@types/node": "^12.11.1",
     "codelyzer": "^6.0.0",
+    "cordova-android": "^9.1.0",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-headercolor": "^1.0.0",
     "cordova-plugin-ionic-keyboard": "^2.2.0",
@@ -81,8 +81,6 @@
       "cordova-plugin-ionic-keyboard": {},
       "cordova-plugin-headercolor": {}
     },
-    "platforms": [
-      "android"
-    ]
+    "platforms": []
   }
 }
