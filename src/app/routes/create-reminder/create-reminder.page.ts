@@ -9,6 +9,7 @@ import { Location } from "@angular/common";
   templateUrl: './create-reminder.page.html',
   styleUrls: ['./create-reminder.page.scss'],
 })
+
 export class CreateReminderPage implements OnInit {
   public reminder: Reminder;
   @Input() id: number = 0;
@@ -22,7 +23,11 @@ export class CreateReminderPage implements OnInit {
   number?:number;
   eventDate?:Date;
 
-  today:string = new Date().toUTCString();
+
+  weekDays = ["Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sabado"]
+  now = new Date();
+
+  today:string = `${this.weekDays[this.now.getDay()]} ${this.now.getDate()}, ${this.now.getFullYear()}}`
 
   constructor(
     private data: ReminderService,
