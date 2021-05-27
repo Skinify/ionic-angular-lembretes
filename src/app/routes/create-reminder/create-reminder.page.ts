@@ -20,6 +20,9 @@ export class CreateReminderPage implements OnInit {
   cep?:string;
   street?:string;
   number?:number;
+  eventDate?:Date;
+
+  today:string = new Date().toUTCString();
 
   constructor(
     private data: ReminderService,
@@ -43,6 +46,7 @@ export class CreateReminderPage implements OnInit {
       this.cep = this.reminder.cep;
       this.street = this.reminder.street;
       this.number = this.reminder.number;
+      this.eventDate = this.reminder.eventDate;
     }else{
       this.reminder = null;
       this.title = "";
@@ -52,6 +56,7 @@ export class CreateReminderPage implements OnInit {
       this.cep = null;
       this.street = null;
       this.number = null;
+      this.eventDate = null;
     }
   }
 
@@ -84,6 +89,7 @@ export class CreateReminderPage implements OnInit {
           cep:this.cep,
           street:this.street,
           number:this.number,
+          eventDate:this.eventDate
         });
         this.location.back();
       }else{
@@ -97,6 +103,7 @@ export class CreateReminderPage implements OnInit {
           cep:this.cep,
           street:this.street,
           number:this.number,
+          eventDate:this.eventDate
         })
         this.location.back();
       }

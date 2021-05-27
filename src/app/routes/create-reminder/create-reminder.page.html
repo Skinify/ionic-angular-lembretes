@@ -70,4 +70,13 @@
       <input type="text" disabled={{!eventCheck}} placeholder="2331" class="text-entry" [(ngModel)]="number" />
     </div>
   </ion-item>
+  <ion-item lines="none">
+    <div class="container">
+      <ion-label>
+        Data de evento
+      </ion-label>
+      <ion-datetime disabled={{!eventCheck}} [(ngModel)]="eventDate" placeholder={{today}} display-timezone="utc"></ion-datetime>
+      <!--<input type="text" disabled={{!eventCheck}} placeholder="57303-777" class="text-entry" [(ngModel)]="cep" />-->
+    </div>
+  </ion-item>
 </ion-content>

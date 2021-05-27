@@ -11,11 +11,13 @@ export interface Reminder {
   cep?:string,
   street?: string,
   number?: number,
+  eventDate?: Date,
 }
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ReminderService {
   private reminderNextId = 1;
   public reminders: Reminder[] = [];
@@ -23,7 +25,7 @@ export class ReminderService {
 
   constructor(private storage: Storage) {
     this.init();
-   }
+  }
 
   async init(){
     this.storage = await this.storage.create();
@@ -80,6 +82,7 @@ export class ReminderService {
         rem.cep = reminder.event ? reminder.cep : null
         rem.street = reminder.event ? reminder.street : null
         rem.number = reminder.event ? reminder.number : null
+        rem.eventDate = reminder.event ? reminder.eventDate : null
       }
       return rem;
     })
@@ -96,7 +99,8 @@ export class ReminderService {
       event: reminder.event,
       cep:reminder.event ? reminder.cep : null,
       street:reminder.event ? reminder.street : null,
-      number:reminder.event ? reminder.number : null
+      number:reminder.event ? reminder.number : null,
+      eventDate: reminder.event ? reminder.eventDate : null
     });
     this.syncStorage()
   }
