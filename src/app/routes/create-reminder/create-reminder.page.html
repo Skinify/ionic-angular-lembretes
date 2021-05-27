@@ -44,8 +44,30 @@
       <ion-label>
         Evento ?
       </ion-label>
-      <div class="help" (click)="toggleHelp('Para utilizar esse campo é necessário possuir internet')">
+      <div class="help" (click)="toggleHelp('Para utilizar esse campo é necessário possuir internet')" style="display: none;">
         ?
       </div>
+  </ion-item>
+  <ion-item lines="none">
+    <div class="container">
+      <ion-label>
+        CEP
+      </ion-label>
+      <input type="text" disabled={{!eventCheck}} placeholder="57303-777" class="text-entry" [(ngModel)]="cep" />
+    </div>
+  </ion-item>
+  <ion-item lines="none">
+    <div class="container">
+      <ion-label>
+        Rua
+      </ion-label>
+      <input type="text" disabled={{!eventCheck}} placeholder="Rua Santo Felipe Benício" class="text-entry" [(ngModel)]="street" />
+    </div>
+    <div class="container">
+      <ion-label>
+        Número
+      </ion-label>
+      <input type="text" disabled={{!eventCheck}} placeholder="2331" class="text-entry" [(ngModel)]="number" />
+    </div>
   </ion-item>
 </ion-content>

@@ -7,7 +7,7 @@ export interface Reminder {
   content:string,
   creationDate: Date,
   done:boolean,
-  event?:boolean,
+  event:boolean,
   cep?:string,
   street?: string,
   number?: number,
@@ -76,6 +76,10 @@ export class ReminderService {
       if(reminder.id === rem.id){
         rem.title = reminder.title
         rem.content = reminder.content
+        rem.event = reminder.event
+        rem.cep = reminder.event ? reminder.cep : null
+        rem.street = reminder.event ? reminder.street : null
+        rem.number = reminder.event ? reminder.number : null
       }
       return rem;
     })
@@ -89,6 +93,10 @@ export class ReminderService {
       content: reminder.content,
       creationDate: reminder.creationDate,
       done: reminder.done,
+      event: reminder.event,
+      cep:reminder.event ? reminder.cep : null,
+      street:reminder.event ? reminder.street : null,
+      number:reminder.event ? reminder.number : null
     });
     this.syncStorage()
   }

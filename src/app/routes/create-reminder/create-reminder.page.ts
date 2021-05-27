@@ -15,8 +15,11 @@ export class CreateReminderPage implements OnInit {
   title: string = "";
   content: string = "";
   creationDate: Date = new Date();
-  onInternet: Boolean;
-  eventCheck: Boolean = false;
+  onInternet: boolean;
+  eventCheck: boolean = false;
+  cep?:string;
+  street?:string;
+  number?:number;
 
   constructor(
     private data: ReminderService,
@@ -37,12 +40,18 @@ export class CreateReminderPage implements OnInit {
       this.content = this.reminder.content;
       this.creationDate = this.reminder.creationDate;
       this.eventCheck = this.reminder.event || false;
+      this.cep = this.reminder.cep;
+      this.street = this.reminder.street;
+      this.number = this.reminder.number;
     }else{
       this.reminder = null;
       this.title = "";
       this.content = "";
       this.creationDate = null;
       this.eventCheck = false;
+      this.cep = null;
+      this.street = null;
+      this.number = null;
     }
   }
 
@@ -71,6 +80,10 @@ export class CreateReminderPage implements OnInit {
           content: this.content,
           creationDate: new Date(),
           done:false,
+          event:this.eventCheck,
+          cep:this.cep,
+          street:this.street,
+          number:this.number,
         });
         this.location.back();
       }else{
@@ -80,6 +93,10 @@ export class CreateReminderPage implements OnInit {
           content: this.content,
           creationDate: new Date(),
           done:false,
+          event:this.eventCheck,
+          cep:this.cep,
+          street:this.street,
+          number:this.number,
         })
         this.location.back();
       }
