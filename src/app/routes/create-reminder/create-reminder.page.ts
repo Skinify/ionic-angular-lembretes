@@ -15,6 +15,8 @@ export class CreateReminderPage implements OnInit {
   title: string = "";
   content: string = "";
   creationDate: Date = new Date();
+  onInternet: Boolean;
+  eventCheck: Boolean = false;
 
   constructor(
     private data: ReminderService,
@@ -24,6 +26,9 @@ export class CreateReminderPage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.onInternet = true;
+
+
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     if(id !== "0"){
       this.reminder = this.data.getReminderById(parseInt(id, 10))[0];
@@ -31,11 +36,13 @@ export class CreateReminderPage implements OnInit {
       this.title = this.reminder.title;
       this.content = this.reminder.content;
       this.creationDate = this.reminder.creationDate;
+      this.eventCheck = this.reminder.event || false;
     }else{
       this.reminder = null;
       this.title = "";
       this.content = "";
       this.creationDate = null;
+      this.eventCheck = false;
     }
   }
 
@@ -79,5 +86,15 @@ export class CreateReminderPage implements OnInit {
     }else{
       await this.presentAlert();
     }
+  }
+
+  async toggleHelp(texto : string){
+    const alert = await this.alertController.create({
+      header: 'Ajuda',
+      message: texto,
+      buttons: ['Confirmar']
+    });
+
+    await alert.present();
   }
 }

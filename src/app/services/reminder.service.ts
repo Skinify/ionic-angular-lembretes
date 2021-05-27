@@ -7,6 +7,10 @@ export interface Reminder {
   content:string,
   creationDate: Date,
   done:boolean,
+  event?:boolean,
+  cep?:string,
+  street?: string,
+  number?: number,
 }
 
 @Injectable({
@@ -43,6 +47,10 @@ export class ReminderService {
         return reminder;
       }
     });
+  }
+
+  public toggleHelp(){
+    
   }
 
   public getReminders() : Reminder[]{

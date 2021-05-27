@@ -32,11 +32,20 @@
   </div>
   </ion-item>
   <ion-item lines="none" *ngIf="creationDate !== null">
-    <div class="container">
+  <div class="container">
     <ion-label>
       Data de criação
     </ion-label>
     <input type="text" readonly disabled class="text-entry" value="{{creationDate.toLocaleDateString()}}" />
   </div>
+  </ion-item>
+  <ion-item lines="none">
+      <ion-checkbox slot="start" color="primary" checked={{eventCheck}} [(ngModel)]="eventCheck" disabled={{!onInternet}}></ion-checkbox>
+      <ion-label>
+        Evento ?
+      </ion-label>
+      <div class="help" (click)="toggleHelp('Para utilizar esse campo é necessário possuir internet')">
+        ?
+      </div>
   </ion-item>
 </ion-content>
