@@ -19,16 +19,16 @@
     <p>
       {{ reminder.content }}
     </p>
-    <p>
+    <p *ngIf="reminder.event === true">
       Cep: {{ reminder.cep }}
     </p>
-    <p>
+    <p *ngIf="reminder.event === true">
       Rua: {{ reminder.street }}
     </p>
-    <p>
+    <p *ngIf="reminder.event === true">
       Número: {{ reminder.number }}
     </p>
-    <p>
+    <p *ngIf="reminder.event === true">
       Evento marcado para: {{ eventDateFormated }}
     </p>
 

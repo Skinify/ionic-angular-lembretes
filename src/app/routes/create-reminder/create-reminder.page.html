@@ -48,30 +48,30 @@
         ?
       </div>
   </ion-item>
-  <ion-item lines="none">
+  <ion-item lines="none" *ngIf="eventCheck === true">
     <div class="container">
       <ion-label>
         CEP
       </ion-label>
-      <input type="text" disabled={{!eventCheck}} onkeypress="return (event.charCode != 8 && event.charCode == 0 || (event.charCode >= 48 && event.charCode <= 57))" placeholder="57303777" class="text-entry" maxlength="8" [(ngModel)]="cep" />
+      <input type="text" (blur)="searchCEP(cep)" disabled={{!eventCheck}} onkeypress="return (event.charCode != 8 && event.charCode == 0 || (event.charCode >= 48 && event.charCode <= 57))" placeholder="57303777" class="text-entry" maxlength="8" [(ngModel)]="cep" />
     </div>
   </ion-item>
-  <ion-item lines="none">
+  <ion-item lines="none" *ngIf="eventCheck === true">
     <div class="container">
       <ion-label>
         Rua
       </ion-label>
       <input type="text" disabled={{!eventCheck}} placeholder="Rua Santo Felipe Benício" class="text-entry" [(ngModel)]="street" />
     </div>
-    <div class="container">
+    <div class="container" >
       <ion-label>
         Número
       </ion-label>
       <input type="number" disabled={{!eventCheck}} placeholder="2331" class="text-entry" [(ngModel)]="number" />
     </div>
   </ion-item>
-  <ion-item lines="none">
-    <div class="container">
+  <ion-item lines="none" *ngIf="eventCheck === true">
+    <div class="container" >
       <ion-label>
         Data de evento
       </ion-label>

@@ -123,13 +123,34 @@ export class CreateReminderPage implements OnInit {
 
   }
 
-  async toggleHelp(texto : string){
-    const alert = await this.alertController.create({
-      header: 'Ajuda',
-      message: texto,
-      buttons: ['Confirmar']
-    });
+  async searchCEP(texto : string){
+    const alert = async () => {
+      this.street = null;
+      const alertBox = await this.alertController.create({
+        header: 'Erro ao buscar por CEP',
+        message: "Desculpe houve um erro ao buscar pelo CEP digitado",
+        buttons: ['Confirmar']
+      });
+      alertBox.present();
+  }
 
-    await alert.present();
+    
+    if(texto.length < 8)
+      return;
+
+      try{
+        const request = await fetch(`https://viacep.com.br/ws/${texto}/json/`)
+        const response = await request.json();
+        if(typeof response.erro !== "undefined"){
+          await alert();
+          return;
+        }
+
+        this.street = response.logradouro;
+    
+    
+      }catch(ex){
+        await alert();
+      }
   }
 }
