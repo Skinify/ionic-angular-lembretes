@@ -53,7 +53,7 @@
       <ion-label>
         CEP
       </ion-label>
-      <input type="text" disabled={{!eventCheck}} placeholder="57303-777" class="text-entry" [(ngModel)]="cep" />
+      <input type="text" disabled={{!eventCheck}} onkeypress="return (event.charCode != 8 && event.charCode == 0 || (event.charCode >= 48 && event.charCode <= 57))" placeholder="57303777" class="text-entry" maxlength="8" [(ngModel)]="cep" />
     </div>
   </ion-item>
   <ion-item lines="none">
@@ -67,7 +67,7 @@
       <ion-label>
         Número
       </ion-label>
-      <input type="text" disabled={{!eventCheck}} placeholder="2331" class="text-entry" [(ngModel)]="number" />
+      <input type="number" disabled={{!eventCheck}} placeholder="2331" class="text-entry" [(ngModel)]="number" />
     </div>
   </ion-item>
   <ion-item lines="none">
