@@ -3,7 +3,7 @@
     <ion-buttons slot="start">
       <ion-back-button [text]="getBackButtonText()" defaultHref="/"></ion-back-button>
     </ion-buttons>
-    <ion-title>{{ reminder.title.length > 16 ? reminder.title.substring(-1,16) + '...' : reminder.title}}</ion-title>
+    <ion-title>{{ reminder.event ? "Evento" : "Lembrete"}}</ion-title>
 
     <ion-buttons slot="end">
       <ion-button class="ion-activatable ripple-parent" [routerLink]="'/create/reminder/' + reminder.id">
@@ -20,23 +20,20 @@
       {{ reminder.content }}
     </p>
     <p>
-      {{ reminder.event }}
+      Cep do local {{ reminder.cep }}
     </p>
     <p>
-      {{ reminder.cep }}
+      Rua {{ reminder.street }}
     </p>
     <p>
-      {{ reminder.street }}
+      Numero {{ reminder.number }}
     </p>
     <p>
-      {{ reminder.number }}
-    </p>
-    <p>
-      {{ eventDateFormated }}
+      Evento marcado para {{ eventDateFormated }}
     </p>
 
     <span class="date">
-      <ion-note>{{ creationDateFormated }}</ion-note>
+      <ion-note>Data de criação {{ creationDateFormated }}</ion-note>
     </span>
   </div>
 </ion-content>

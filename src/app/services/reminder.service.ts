@@ -82,7 +82,7 @@ export class ReminderService {
         rem.cep = reminder.event ? reminder.cep : null
         rem.street = reminder.event ? reminder.street : null
         rem.number = reminder.event ? reminder.number : null
-        rem.eventDate = reminder.event ? reminder.eventDate : null
+        rem.eventDate = reminder.event ? new Date(reminder.eventDate) : null
       }
       return rem;
     })
@@ -100,7 +100,7 @@ export class ReminderService {
       cep:reminder.event ? reminder.cep : null,
       street:reminder.event ? reminder.street : null,
       number:reminder.event ? reminder.number : null,
-      eventDate: reminder.event ? reminder.eventDate : null
+      eventDate: reminder.event ? new Date(reminder.eventDate) : null
     });
     this.syncStorage()
   }
