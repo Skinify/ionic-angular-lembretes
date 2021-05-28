@@ -16,10 +16,11 @@ ion-item h2 {
   font-weight: 600;
 }
 
-ion-item .date {
-  float: right;
-  align-items: center;
-  display: flex;
+.date {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
 }
 
 ion-item ion-icon {

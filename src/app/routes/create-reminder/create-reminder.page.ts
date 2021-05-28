@@ -81,9 +81,17 @@ export class CreateReminderPage implements OnInit {
     await alert.present();
   }
 
+  
+
   async addReminder(){
-    if(this.title !== "" && this.content !== ""){
-      if(this.id === 0){
+    if(this.title === "" || this.content === "")
+      return await this.presentAlert();
+
+    if(this.eventCheck)
+      if(this.cep === "" || this.street === "" || this.number === null || this.eventDate === null)
+        return await this.presentAlert();
+
+    if(this.id === 0){
         this.data.addReminder({
           id: 0,
           title: this.title,
@@ -112,9 +120,7 @@ export class CreateReminderPage implements OnInit {
         })
         this.location.back();
       }
-    }else{
-      await this.presentAlert();
-    }
+
   }
 
   async toggleHelp(texto : string){

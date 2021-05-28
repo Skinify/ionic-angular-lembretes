@@ -19,8 +19,24 @@
     <p>
       {{ reminder.content }}
     </p>
+    <p>
+      {{ reminder.event }}
+    </p>
+    <p>
+      {{ reminder.cep }}
+    </p>
+    <p>
+      {{ reminder.street }}
+    </p>
+    <p>
+      {{ reminder.number }}
+    </p>
+    <p>
+      {{ eventDateFormated }}
+    </p>
+
     <span class="date">
-      <ion-note>{{ reminder.creationDate.toLocaleDateString() }}</ion-note>
+      <ion-note>{{ creationDateFormated }}</ion-note>
     </span>
   </div>
 </ion-content>

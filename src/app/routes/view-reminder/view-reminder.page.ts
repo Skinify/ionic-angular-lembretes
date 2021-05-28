@@ -10,6 +10,9 @@ import { ReminderService, Reminder } from '../../services/reminder.service'
 export class ViewReminderPage implements OnInit {
   public reminder: Reminder;
 
+  creationDateFormated : string = "";
+  eventDateFormated : string = "";
+
   constructor(
     private data: ReminderService,
     private activatedRoute: ActivatedRoute
@@ -18,6 +21,8 @@ export class ViewReminderPage implements OnInit {
   ngOnInit() {
     const id = this.activatedRoute.snapshot.paramMap.get('id');
     this.reminder = this.data.getReminderById(parseInt(id, 10))[0];
+    this.creationDateFormated = this.reminder.creationDate.toLocaleDateString();
+    this.eventDateFormated = this.reminder.event ? this.reminder.eventDate.toLocaleDateString() : ""
   }
 
   getBackButtonText() {
